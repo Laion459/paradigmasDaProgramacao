@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 03</title>
+</head>
+<body background="">
+
+    <h1>Desafío 03</h1>
+
+    <form>
+        <h3>Funcionário:</h3>
+        <input placeholder="Matrícula Funcionário"/>
+
+        <h3>Nome:</h3>
+        <input placeholder="Nome Funcionário"/>
+
+        <h3>Função:</h3>
+        <label for="Função dentro da instituição">Selecione</label>
+        <select name="Função dentro da instituição" id="Função dentro da instituição">
+            <option value="Funcionário">Funcionário</option>
+            <option value="Professor">Professor</option>
+            <option value="Bolsista">Bolsista</option>
+            <option value="Estagiário">Estagiário</option>
+        </select>
+
+        <h3>Data admissão:</h3>
+        <input type="date" placeholder="Data admissão">
+
+        <h3>E-mail:</h3>
+        <input type="email" placeholder="E-mail">
+
+        <h3>Imagem:</h3>
+        <img src="aula.jpg" height="200" width="400" />
+
+        <h3>Botão</h3>
+        <button>Concluir cadastro</button>
+
+        <h3>Aréa de Comentários:</h3>
+        <textarea placeholder="Comentários"></textarea>
+
+        <h3>Tabela descrição:</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Professor</th>
+                    <th>Bolsista</th>
+                    <th>Estagiário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Trabalha na instituição</td>
+                    <td>Leciona na instituição</td>
+                    <td>Estuda/ajuda na instituição</td>
+                    <td>Estuda na instituição</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>FIM</td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>
+</html>

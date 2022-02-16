@@ -1,0 +1,26 @@
+
+def testArray(array, indice):
+    
+    for i in range(0, indice):
+        if (array[i] > array[i + 1]):
+            print("Array desordenado ' - 2' ")
+
+        if (array[i] == indice):
+            aux = i;
+            print("Indice encontrado, valor: " + i);
+            return aux;
+        else:
+            print("Indice não encontrado. ");
+            return -1;
+
+
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+    arrayTeste[];
+    indice = 2;
+
+    for i in range(0, 10):
+        arrayTeste[i] = i + 1;
+
+    testArray(arrayTeste, indice);

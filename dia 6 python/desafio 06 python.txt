@@ -1,0 +1,46 @@
+
+from functools import reduce
+
+# a) Faça a carga de uma determinada massa de dados e um array.
+print("a) Faça a carga de uma determinada massa de dados e um array.")
+array = [1,5,"11",-6,4,76,44,200," ", 5]
+print("     - Array carregado aleatório: ", array)
+print()
+
+# b) Elimine os valores em branco com filter.
+filtro_espacos_brancos = list(filter(lambda x: x != " ", array))
+print("b) Elimine os valores em branco com filter: ")
+print("     - Array sem espaços em branco: ", filtro_espacos_brancos)
+print()
+
+
+# c) Converta os valores textuais para valores numéricos com map.
+print("c) Converta os valores textuais para valores numéricos com map.")
+def converte_texto_para_inteiro(array):
+    if(type(array) != type(1)):
+        array = type(1)
+    return array
+
+lista_sem_string_map =  list(map(converte_texto_para_inteiro, array))
+print("     - Array passado pelo map para converter espaço string em tipo inteiro: " ,lista_sem_string_map)
+
+
+# d) Elimine os valores negativos com filter.
+print("d) Elimine os valores negativos com filter.")
+#filtra_valores_negativos = list(filter(lambda x: x < 0, lista_sem_string_map))
+#print(filtra_valores_negativos)
+
+
+# e) Realize o somatório dos valores com reduce.
+print("e) Realize o somatório dos valores com reduce.")
+def somaReduce(numero, acumulado):
+    return numero + acumulado
+
+sum = reduce((lambda x, y: x + y), lista_sem_string_map)
+
+print("Total somatório: ", sum)
+
+# f) Calcule a média.
+# g) Calcule a variância.
+# h) Calcule o desvio padrão
+

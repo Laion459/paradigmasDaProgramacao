@@ -1,0 +1,295 @@
+package paradigmas.da.programacao.II;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+	America america = new America("América", 20);
+    Europa europa = new Europa("Europa", 55);
+    Asia asia = new Asia("Asia", 21);
+
+    CalculadoraImposto calculadoraImposto = new CalculadoraImposto(100f, "calculadora");
+
+    System.out.println("#### -CALCULADORA DE IMPOSTOS:- #### ");
+    System.out.println();
+    
+    System.out.println("    *** Calcula América: *** " + calculadoraImposto.calculaImposto("América", 999));
+    System.out.println("    *** Calcula Europa: *** " + calculadoraImposto.calculaImposto("Europa", 999));
+    System.out.println("    *** Calcula Asia: *** " + calculadoraImposto.calculaImposto("Asia", 999));
+
+    // Aqui só testes para brincar
+    System.out.println();
+    CalculadoraImposto calculadoraImpostoAmerica = new CalculadoraImposto(1000f, "América");
+    CalculadoraImposto calculadoraImpostoEuropa = new CalculadoraImposto(1000f, "Europa");
+    CalculadoraImposto calculadoraImpostoAsia = new CalculadoraImposto(1000f, "Asia");
+
+    System.out.println("    - América: " + america.getNome());
+    System.out.println("    - Pupulação: " + america.getPopulacao());
+
+    System.out.println("    - Europa: " + europa.getNome());
+    System.out.println("    - Pupulação: " + europa.getPopulacao());
+
+    System.out.println("    - Asia: " + asia.getNome());
+    System.out.println("    - Pupulação: " + asia.getPopulacao());
+
+    System.out.println("    - Calcula imposto " + calculadoraImpostoAmerica.calculaImposto("América", 1000));
+    System.out.println("    - Pais: " + america.getNome() + "   - População: " + america.getPopulacao());
+    System.out.println("");
+
+    System.out.println("    - Nome: " + calculadoraImpostoAsia.getNome());
+    System.out.println("    - Preço: 400,00 = " + calculadoraImpostoAsia.calculaImposto("Asia" , 400f));
+
+
+    }
+}
+
+
+public class CalculadoraImposto{
+    private Float preco;
+    private String nome;
+    private Somatorio soma;
+
+    // Médtodos especiais
+
+    public CalculadoraImposto(Float preco, String nome) {
+        this.preco = preco;
+        this.nome = nome;
+    }
+
+    // Métodos privados
+
+
+    public Somatorio getSoma() {
+        return soma;
+    }
+
+    public void setSoma(Somatorio soma) {
+        this.soma = soma;
+    }
+
+    public Float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Float preco) {
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "CalculadoraImposto{" +
+                "preco=" + preco +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+    // Métodos públicos
+    /**
+     calcula imposto() recebe
+     @parametro continente recebe nome localisação para definir carga a ser multiplicada
+     @parametro preco recebe a porsetagem a ser aplicada ao preco
+     @return preco com valor multiplicado
+     */
+    public double calculaImposto(String continente, double preco){
+
+        if (continente == "América"){
+            preco = preco * 1.10;
+        }
+
+        if (continente == "Asia"){
+            preco = preco * 1.15;
+        }
+
+        if (continente == "Europa"){
+            preco = preco * 1.20;
+        }
+        return preco;
+    }
+}
+package paradigmas.da.programacao.II;
+
+abstract public class Somatorio {
+
+    public double sum(double soma){
+        soma += soma;
+        return soma;
+    }
+
+}
+package paradigmas.da.programacao.II;
+
+import java.util.Objects;
+
+public class America {
+    private String nome;
+    private Integer populacao;
+
+    public America(String nome, Integer populacao) {
+        this.nome = nome;
+        this.populacao = populacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getPopulacao() {
+        return populacao;
+    }
+
+    public void setPopulacao(Integer populacao) {
+        this.populacao = populacao;
+    }
+
+    @Override
+    public String toString() {
+        return "America{" +
+                "nome='" + nome + '\'' +
+                ", populacao=" + populacao +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof America)) return false;
+        America america = (America) o;
+        return getNome().equals(america.getNome()) && getPopulacao().equals(america.getPopulacao());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getPopulacao());
+    }
+}
+package paradigmas.da.programacao.II;
+
+import java.util.Objects;
+
+public class Europa {
+    private String nome;
+    private Integer populacao;
+
+    public Europa(String nome, Integer populacao) {
+        this.nome = nome;
+        this.populacao = populacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getPopulacao() {
+        return populacao;
+    }
+
+    public void setPopulacao(Integer populacao) {
+        this.populacao = populacao;
+    }
+
+    @Override
+    public String toString() {
+        return "Europa{" +
+                "nome='" + nome + '\'' +
+                ", populacao=" + populacao +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Europa)) return false;
+        Europa europa = (Europa) o;
+        return Objects.equals(getNome(), europa.getNome()) && Objects.equals(getPopulacao(), europa.getPopulacao());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getPopulacao());
+    }
+}
+package paradigmas.da.programacao.II;
+
+import java.util.Objects;
+
+public class Asia {
+    private String nome;
+    private Integer populacao;
+
+    public Asia(String nome, Integer populacao) {
+        this.nome = nome;
+        this.populacao = populacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getPopulacao() {
+        return populacao;
+    }
+
+    public void setPopulacao(Integer populacao) {
+        this.populacao = populacao;
+    }
+
+    @Override
+    public String toString() {
+        return "Asia{" +
+                "nome='" + nome + '\'' +
+                ", populacao='" + populacao + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Asia)) return false;
+        Asia asia = (Asia) o;
+        return Objects.equals(getNome(), asia.getNome()) && Objects.equals(getPopulacao(), asia.getPopulacao());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getPopulacao());
+    }
+}
+
+
+******* Saída *******
+#### -CALCULADORA DE IMPOSTOS:- #### 
+
+    *** Calcula América: *** 1098.9
+    *** Calcula Europa: *** 1198.8
+    *** Calcula Asia: *** 1148.85
+
+    - América: América
+    - Pupulação: 20
+    - Europa: Europa
+    - Pupulação: 55
+    - Asia: Asia
+    - Pupulação: 21
+    - Calcula imposto 1100.0
+    - Pais: América   - População: 20
+
+    - Nome: Asia
+    - Preço: 400,00 = 459.99999999999994

@@ -1,0 +1,44 @@
+package paradigmas.da.programacao.II;
+
+public class Main {
+
+    public static void main(String[] args) {
+        double[] arrayTeste;
+        Integer indice = 2;
+
+        for (int i = 0; i < 10; i++){
+            arrayTeste[i] = i + 1;
+        }
+
+        testArray(arrayTeste, indice);
+
+
+    }
+
+    public static int testArray(double array[], Integer indice){
+
+        int aux = 0;
+
+        // Varre o array
+        for (int i = 0; i < array.length; i++){
+
+            // testa o array se esta ordenado
+            if(array[i] > array[i + 1]){
+                System.out.println("Array desordenado ' - 2' ");
+                return -2;
+            }
+
+            // testa o array se array[i] é igual a indice
+            if (array[i] == indice){
+                aux = i;
+                System.out.println("Indice encontrado, valor: " + i);
+                return aux;
+            }else{
+                System.out.println("Indice não encontrado. ");
+                return -1;
+            }
+        }
+
+        return aux;
+    }
+}

@@ -1,0 +1,227 @@
+rom functools import reduce
+
+
+
+
+
+def concatena (string1, string2):
+
+print(type(string1), type(string1))
+
+return str(string1) + str(string2)
+
+
+
+l2 = [0,1,2,True, False, None, "UNIVALI", { },["a","b","c"]]
+
+l1 = [-2, -1, 1, 5, 9, 11, 2, 0, 1, 19]
+
+#print ("conversão", type("1"), type(int("1")), type(int(1)))
+
+
+
+
+
+def somaReduce(acumulado, numero):
+
+print("acumulado:", acumulado, "numero", numero)
+
+return numero + acumulado
+
+
+
+def produtorioReduce(acumulado, numero):
+
+print("acumulado:", acumulado, "numero", numero)
+
+return numero * acumulado
+
+
+
+
+
+soma = reduce (somaReduce, l1)
+
+print ("Resultado reduce", soma)
+
+
+
+produtorio = reduce (produtorioReduce, list(filter(lambda n: n!=0, l1)))
+
+print ("Resultado reduce", produtorio )
+
+
+
+
+
+nomes = ["Jaques", "Caio", "Diogo", "Fabio"]
+
+nomesCompletos = ["Shaggy Rogers","Fred Jones","Daphne Blake", "Velma Dinkley"]
+
+
+
+def formataNome(nome):
+
+parts = nome.split(" ")
+
+return parts[1].upper() + ", " + parts[0]
+
+print("Map - nomes", list(map(formataNome, nomesCompletos)))
+
+
+
+
+
+print(list(map(lambda el: el.upper(), nomes)))
+
+
+
+def funcModulo(el):
+
+if(el < 0):
+
+el = el * -1
+
+ return el
+
+
+
+
+
+print("Modulo:", list(map(funcModulo, l1)))
+
+
+
+substring="iO"
+
+def filtroNomes(string):
+
+return substring.lower() in string.lower()
+
+
+
+print(list(filter(filtroNomes, nomes)))
+
+print(list(filter(lambda el: "i0".lower() in el.lower(), nomes)))
+
+
+
+
+
+def filtroLimear(n1):
+
+limear = 5
+
+ return n1 > limear
+
+
+
+listaFiltrada = list(filter(filtroLimear, l1))
+
+print(listaFiltrada, len(listaFiltrada), l1, len(l1))
+
+
+
+print (type(l2),l2)
+
+tipoInteiro = type(1)
+
+
+
+def filtroInt(variable):
+
+return type(variable) == tipoInteiro
+
+
+
+#listaFiltrada = filter(filtroInt,l2)
+
+listaFiltrada = filter(lambda el: type(el) == type({}),l2)
+
+print("listaFiltrada", type(listaFiltrada), listaFiltrada, list(listaFiltrada))
+
+
+
+
+
+#l1 = range(0, 10)
+
+#print (type(l1),l1)
+
+
+
+
+
+
+
+concatenaLambda = lambda str1, str2: str(str1) + str(str2)
+
+concatenaLambda2 = lambda str1, str2: concatena(str1, str2)
+
+s1 = "Hello"
+
+s2 = "World!!!"
+
+print(type(concatena), type(concatenaLambda))
+
+
+
+c = concatenaLambda2
+
+fResult = c( c(s1," "), s2)
+
+print("Função (lambda - chamando função DEF) em variável:", fResult)
+
+
+
+
+
+fResult = concatena( concatena(s1," "), s2)
+
+print("Função DEF:", fResult)
+
+
+
+fResult = concatenaLambda( concatenaLambda(s1," "), s2)
+
+print("Função Lambda:", fResult)
+
+x = 7
+
+#x = "Python"
+
+x = x * x
+
+y = 4
+
+print("X:", x, "Y:", y)
+
+print ("X:" + str(x))
+
+b1 = y == x
+
+b2 = x > y
+
+
+
+print (b1, b2, b1 and b2, b1 or b2)
+
+
+
+if (b1):
+
+print("y é igual a x")
+
+else:
+
+print("y é diferente a x")
+
+
+
+while (not (y == x)):
+
+y = y + 1
+
+
+
+print("Y:", y, "X:", x)
