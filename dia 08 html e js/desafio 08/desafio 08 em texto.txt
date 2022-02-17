@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body onload="exibeMensagem()">
+    <h1>Bem vindos</h1>
+    <h1>HOME</h1>
+
+    <h2>#### MENÙ ####</h2>
+    <a onclick="window.open('contato.html')">CONTATO</a>
+    <br/>
+    <a onclick="window.open('cadastro.html')">CADASTRO</a>
+
+    <script type="text/javascript" src="js.js"> 
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>CONTATO</title>
+</head>
+<body>
+    <h1>Bem vindos página HOME</h1>
+    <h1>CONTATO</h1>
+    <h2>#### MENÙ ####</h2>
+    <a onclick="window.open('home.html')">HOME</a>
+    <br/>
+    <a onclick="window.open('cadastro.html')">CADASTRO</a>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>CADASTRO</title>
+    <script>
+        function validaDados(){
+        let valorFuncionario = window.document.getElementById("funcionario").value;
+        let valorNome = window.document.getElementById("nome").value;
+
+        if(valorFuncionario === "" || valorNome === ""){
+          window.alert("Não é possível validar os dados. Preencha os campos primeiro.");
+        }else{
+          window.alert("Formulário enviado!."); 
+        }
+      }
+    </script>
+</head>
+<body>
+    <h1>Bem vindos página</h1>
+    <h1>CADASTRO</h1>
+
+    <h2>#### MENÙ ####</h2>
+    <a onclick="window.open('home.html')">HOME</a>
+    <br/>
+    <a onclick="window.open('contato.html')">CONTATO</a>
+
+    <form>
+        <h3>Funcionário:</h3>
+        <input id="funcionario" placeholder="Matrícula Funcionário"/>
+
+        <h3>Nome:</h3>
+        <input id="nome" placeholder="Nome Funcionário"/>
+        <br/>
+        <br/>
+        <input type="button" value="Enviar formulário" onclick="validaDados()" />
+    </form>
+</body>
+</html>
+
+h1{
+    background-color: blue;
+}
+
+h2{
+    color: darkmagenta;
+}
+
+a{
+    color: rgb(0, 255, 0);
+    font-weight: 35em;
+    text-decoration: slateblue;
+}
+ 
+a:hover {
+    color: #F00;
+}
+
+input:hover{
+    color: rgb(255, 255, 255);
+    background-color: blue;
+}
+
+function exibeMensagem(){
+    let dt = new Date();
+    let hora = dt.getHours();
+
+    if(hora > 6 && hora <= 12){
+      window.alert("Bom dia!");
+    }
+    if( hora > 12 && hora < 18){
+      window.alert("Boa tarde!");
+    }else{
+      window.alert("Boa noite!");
+    }
+    console.log("hora", hora);
+}

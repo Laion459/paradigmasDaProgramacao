@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <script>
+
+      let i = 0;
+
+      function verificaTecla(){
+
+        console.log("tecla digitada....",event); 
+
+        console.log("A tecla clicada foi:::", event.key); 
+
+        if(event.key === "0"){
+          console.warn("Não é recomendável entrar com a tecla 0")
+        }
+      }
+
+      function incremento(n){  
+
+        console.log("mouse clicado....",event);      
+
+        i = i + n;
+
+        console.log("i=", i);
+      }
+
+      function calculaQuadrado(){
+
+        let x = 3;
+
+        let x2 = x * x;
+
+        console.log("X2=", x2);
+
+      }
+
+      function escutaMovimentMouse(){
+
+        if(event.type === "mouseover"){
+
+          console.log("O mouse está sob o elemento", event);
+
+        }else if(event.type === "mouseout"){
+
+          console.log("O mouse saíu do elemento", event);
+
+        }
+      }
+
+      function exibeNotificacoes(){
+
+        console.log("Bem vindo! Você tem (03) novas comunicações.", event);
+
+      }
+
+      function trataScrolling(){
+
+        console.log("A tela está sendo 'rolada'", event, window);
+
+      }
+
+      function exibeMensagem(){
+        let dt = new Date();
+        let hora = dt.getHours();
+
+        if(hora > 18 && 5 < hora){
+
+          window.alert("Boa noite!");
+
+        }
+        console.log("hora", hora);
+      }
+
+      function validaDados(){
+        let valor = window.document.getElementById("campoA").value;
+        if(valor === ""){
+          window.alert("Não é possível enviar os dados. Preencha o campo primeiro.");
+        }else{
+          window.alert("Formulário pronto para envio."); 
+        }
+      }
+
+    </script>
+  </head>
+
+  <body onload="exibeMensagem()" onscroll="trataScrolling()">
+    <br />
+    <input type="button" value="Calcula quadrado" onclick="calculaQuadrado()" />
+    <br />
+    <input type="button" value="Incremento++" onclick="incremento(1)" ondblclick="incremento(2)" />
+
+    <br />
+
+    <input type="text" id="campoA" onkeydown="verificaTecla()" />
+
+    <input type="button" value="Enviar dados" onclick="validaDados()" />
+
+    <br />
+
+    <table border="1" width="500">
+
+      <tr onmouseover="escutaMovimentMouse()" onmouseout="escutaMovimentMouse()">
+
+        <td>1</td>
+
+      </tr>
+
+      <tr>
+
+        <td>2</td>
+
+      </tr>
+
+      <tr>
+
+        <td>3</td>
+
+      </tr>
+
+    </table>
+
+    <a onclick="window.open('contato.html')">Abrir tela contato</a>
+
+  </body>
+
+</html>
